@@ -166,3 +166,43 @@ type GitUser struct {
 	Email    string `json:"email"`
 	Username string `json:"username"`
 }
+
+// CommitStatusState is used to set/get the current state of a single commit
+type CommitStatusState string
+
+const (
+	// CommitStatusPending is for when the CommitStatus is Pending
+	CommitStatusPending CommitStatusState = "pending"
+	// CommitStatusSuccess is for when the CommitStatus is Success
+	CommitStatusSuccess CommitStatusState = "success"
+	// CommitStatusError is for when the CommitStatus is Error
+	CommitStatusError CommitStatusState = "error"
+	// CommitStatusFailure is for when the CommitStatus is Failure
+	CommitStatusFailure CommitStatusState = "failure"
+	// CommitStatusWarning is for when the CommitStatus is Warning
+	CommitStatusWarning CommitStatusState = "warning"
+)
+
+// CommitStatus describes the state of a single commit
+type CommitStatus struct {
+	ID          int64
+	Index       int64
+	RepoID      int64
+	Repo        *Repository
+	State       CommitStatusState
+	SHA         string
+	TargetURL   string
+	Description string
+	ContextHash string
+	Context     string
+	Creator     User
+	CreatorID   int64
+}
+
+// CreateStatusOption is used to update the status flag for a single commit
+type CreateStatusOption struct {
+	Context     string            `json:"context"`
+	Description string            `json:"description"`
+	State       CommitStatusState `json:"state"`
+	TargetURL   string            `json:"target_url"` // Used to create a link from gitea to another system
+}
