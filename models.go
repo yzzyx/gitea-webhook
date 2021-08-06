@@ -40,7 +40,7 @@ type Event struct {
 	After       string      `json:"after"`
 	CompareURL  string      `json:"compare_url"`
 	Commits     []Commit    `json:"commits"`
-	PullRequest PullRequest `json:"pull_reuqest"`
+	PullRequest PullRequest `json:"pull_request"`
 	Repository  Repository  `json:"repository"`
 	Pusher      User        `json:"pusher"`
 	Sender      User        `json:"sender"`
