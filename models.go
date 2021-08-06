@@ -91,7 +91,7 @@ type Ref struct {
 	Label  string     `json:"label"`
 	Ref    string     `json:"ref"`
 	SHA    string     `json:"sha"`
-	RepoID string     `json:"repo_id"`
+	RepoID int        `json:"repo_id"`
 	Repo   Repository `json:"repo"`
 }
 
