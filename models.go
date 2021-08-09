@@ -56,6 +56,15 @@ type Commit struct {
 	Timestamp time.Time `json:"timestamp"`
 }
 
+// Label describes a issue/pullrequest label
+type Label struct {
+	ID          int    `json:"id"`
+	Name        string `json:"name"`
+	Color       string `json:"color"`
+	Description string `json:"description"`
+	URL         string `json:"url"`
+}
+
 // PullRequest describes a open pull request
 type PullRequest struct {
 	ID             int        `json:"id"`
@@ -64,7 +73,7 @@ type PullRequest struct {
 	User           User       `json:"user"`
 	Title          string     `json:"title"`
 	Body           string     `json:"body"`
-	Labels         []string   `json:"labels"`
+	Labels         []Label    `json:"labels"`
 	Assignee       User       `json:"assignee"`
 	Assignees      []User     `json:"assignees"`
 	State          string     `json:"state"`
